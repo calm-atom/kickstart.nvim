@@ -831,6 +831,21 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+  {
+    'cbochs/grapple.nvim',
+    opts = {
+      scope = 'git', -- also try out "git_branch"
+      icons = false,
+    },
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = 'Grapple',
+    keys = {
+      { '<leader>m', '<cmd>Grapple toggle<cr>', desc = 'Grapple toggle tag' },
+      { '<leader>M', '<cmd>Grapple toggle_tags<cr>', desc = 'Grapple open tags window' },
+      { '<leader>n', '<cmd>Grapple cycle_tags next<cr>', desc = 'Grapple cycle next tag' },
+      { '<leader>p', '<cmd>Grapple cycle_tags prev<cr>', desc = 'Grapple cycle previous tag' },
+    },
+  },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
